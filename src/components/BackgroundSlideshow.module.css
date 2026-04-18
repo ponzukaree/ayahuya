@@ -18,20 +18,17 @@
   inset: 0;
   background-size: cover;
   background-position: center;
-  /* ブラー時のエッジの白線を防ぐために少し拡大 */
   transform: scale(1.05);
-  filter: blur(6px) brightness(0.4);
-  /* 全枚数 × 1枚あたりの表示時間 = アニメーション全体の周期 */
-  /* 1枚あたり6秒表示・1秒フェード。全5枚 = 35秒サイクル */
+  /* 明るめに調整。0.6=コントラストとのバランスが丁度よい */
+  filter: blur(6px) brightness(0.6);
   animation-duration: 35s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-name: slideShow;
-  /* 初期状態は非表示 */
   opacity: 0;
 }
 
-/* 各スライドの開始タイミングをずらす（= delay） */
+/* 各スライドの開始タイミングをずらす（7秒ずつ） */
 .slide:nth-child(1) { animation-delay: 0s; }
 .slide:nth-child(2) { animation-delay: 7s; }
 .slide:nth-child(3) { animation-delay: 14s; }
@@ -39,18 +36,20 @@
 .slide:nth-child(5) { animation-delay: 28s; }
 
 /*
-  1枚のライフサイクル（35秒周期のうち7秒間担当）:
-  0%     - 非表示（フェードイン開始前）
-  14.3%  - フェードイン完了（opacity 1）
-  85.7%  - 表示まま（次のフェードアウト開始）
-  100%   - フェードアウト完了（opacity 0）
+  重要: fade-outの開始(20%)とfade-inの完了(23%)をずらして
+  必ず「前の画像が消えている間、次の画像が既に現れてくる」
+  クロスフェードになるよう設計。全スライドがopacity:0になる瞬間をなくす。
+  - 0%〜3%:   フェードイン (0s〜1.05s)
+  - 3%〜20%:  完全表示
+  - 20%〜23%: フェードアウト (7s〜8.05s) ← 次スライドのフェードインと重なる
+  - 23%〜100%: 非表示
 */
 @keyframes slideShow {
-  0%          { opacity: 0; }
-  4%          { opacity: 1; }
-  17%         { opacity: 1; }
-  20%         { opacity: 0; }
-  100%        { opacity: 0; }
+  0%   { opacity: 0; }
+  3%   { opacity: 1; }
+  20%  { opacity: 1; }
+  23%  { opacity: 0; }
+  100% { opacity: 0; }
 }
 
 .colorOverlay {
