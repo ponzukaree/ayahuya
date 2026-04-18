@@ -3,6 +3,13 @@ import styles from './detail.module.css';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
+export async function generateStaticParams() {
+  const data = await getPortfolioData();
+  return data.works.map((work) => ({
+    id: work.id,
+  }));
+}
+
 export async function generateMetadata({ params }: { params: { id: string } }) {
   const data = await getPortfolioData();
   const work = data.works.find(w => w.id === params.id);
