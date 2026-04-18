@@ -1,32 +1,42 @@
 /*
-  JSのuseStateやuseEffectに依存せず、CSSアニメーションだけで
-  スライドショーを実現。Hydration Mismatchを根本から回避する設計。
-  Server Componentとして実装することで、SSG/SSRでも安全に動作する。
+  CMS（content.json）のギャラリーデータからすべての画像を自動収集し
+  スライドショーにする。作品を追加・変更すれば背景も自動的に更新される。
+  Server Componentとして動作するため、Hydration Mismatchの心配がない。
 */
 import styles from './BackgroundSlideshow.module.css';
+import { getPortfolioData } from '@/lib/cms';
 
-// スライドショーに使う画像一覧
-// この配列に画像URLを追加・変更するだけで管理できる
-const SLIDE_IMAGES = [
-  'https://static.wixstatic.com/media/024420_676aca28495643239364f485bd84f562~mv2.png',
-  'https://static.wixstatic.com/media/024420_7ea89d216aa14a4ba00bd7b4510f01e5~mv2.png',
-  'https://static.wixstatic.com/media/024420_3433480a4d174c338dc6a02185d1b1f7~mv2.png',
-  'https://static.wixstatic.com/media/024420_ed501ab3cdb44d99b966480accc687e1~mv2.png',
-  'https://static.wixstatic.com/media/024420_1b6f4af4579041deb8a5d5a89cf95267~mv2.png',
-];
+export default async function BackgroundSlideshow() {
+  const data = await getPortfolioData();
 
-// Server Componentとして実装（'use client'不要）
-export default function BackgroundSlideshow() {
+  // 全作品から画像URLをフラットに収集する
+  // imagesが設定されていればそれを、なければサムネイル(imageUrl)を使う
+  const allImages = data.works.flatMap((work) => {
+    if (work.images && work.images.length > 0) {
+      return work.images;
+    }
+    return [work.imageUrl];
+  });
+
+  // CSSアニメーションの周期を画像枚数に合わせて計算
+  // スライド1枚あたり15秒で計算し、delayも動的に設定
+  const slideIntervalSeconds = 15;
+  const totalDurationSeconds = allImages.length * slideIntervalSeconds;
+
   return (
     <div className={styles.slideshowWrapper} aria-hidden="true">
-      {SLIDE_IMAGES.map((imageUrl, index) => (
+      {allImages.map((imageUrl, index) => (
         <div
           key={index}
           className={styles.slide}
-          style={{ backgroundImage: `url(${imageUrl})` }}
+          style={{
+            backgroundImage: `url(${imageUrl})`,
+            // 枚数に合わせてアニメーション周期とdelayを動的に設定
+            animationDuration: `${totalDurationSeconds}s`,
+            animationDelay: `${index * slideIntervalSeconds}s`,
+          }}
         />
       ))}
-      {/* 夜の都会の雰囲気を足すグラデーションオーバーレイ */}
       <div className={styles.colorOverlay} />
     </div>
   );
