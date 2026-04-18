@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import BackgroundSlideshow from '@/components/BackgroundSlideshow';
 
 export const metadata: Metadata = {
   title: 'AyahuyA - 3D Modeler Portfolio',
@@ -16,6 +17,8 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body>
+        {/* ページ全体の背景スライドショー（全ページ共通・最背面に固定） */}
+        <BackgroundSlideshow />
         <Header />
         <main style={{ minHeight: 'calc(100vh - 70px - 100px)', paddingTop: '70px' }}>
           {children}
