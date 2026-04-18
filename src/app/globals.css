@@ -24,13 +24,19 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  background-color: var(--color-bg-deep);
+  /* htmlにフォールバック背景色を設定（スライドショーが読み込まれる前の表示用） */
   color: var(--color-text-main);
   font-family: 'Outfit', 'Noto Sans JP', sans-serif;
   line-height: 1.6;
 }
 
+html {
+  background-color: var(--color-bg-deep);
+}
+
 body {
+  /* bodyを透明にすることで、z-index:-1のスライドショーがhtml経由で透けて見える */
+  background-color: transparent;
   min-height: 100vh;
 }
 
