@@ -11,6 +11,8 @@
   height: 100vh;
   z-index: -1;
   overflow: hidden;
+  /* 全スライドがopacity:0の瞬間でも白く光らないよう、黒を敷いておく */
+  background-color: #030816;
 }
 
 .slide {
@@ -19,36 +21,39 @@
   background-size: cover;
   background-position: center;
   transform: scale(1.05);
-  /* 明るめに調整。0.6=コントラストとのバランスが丁度よい */
   filter: blur(6px) brightness(0.6);
-  animation-duration: 35s;
+
+  /*
+    5枚 × 15秒 = 75秒サイクル。
+    各スライドは15秒ずつずれて始まる（animation-delay参照）。
+    クロスフェードは3秒かけてゆっくり。
+    フェード設計（75秒周期）:
+      0%  〜 4%  : フェードイン（0s〜3s）
+      4%  〜 20% : 完全表示（3s〜15s）
+      20% 〜 24% : フェードアウト（15s〜18s）← 次スライドのフェードインと重なる
+      24% 〜 100%: 非表示
+    これにより「前が消えながら次が現れる」クロスフェードが実現し、
+    すべてが透明になる瞬間をなくす。
+  */
+  animation-duration: 75s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-name: slideShow;
   opacity: 0;
 }
 
-/* 各スライドの開始タイミングをずらす（7秒ずつ） */
+/* 各スライドの開始タイミングを15秒ずつずらす */
 .slide:nth-child(1) { animation-delay: 0s; }
-.slide:nth-child(2) { animation-delay: 7s; }
-.slide:nth-child(3) { animation-delay: 14s; }
-.slide:nth-child(4) { animation-delay: 21s; }
-.slide:nth-child(5) { animation-delay: 28s; }
+.slide:nth-child(2) { animation-delay: 15s; }
+.slide:nth-child(3) { animation-delay: 30s; }
+.slide:nth-child(4) { animation-delay: 45s; }
+.slide:nth-child(5) { animation-delay: 60s; }
 
-/*
-  重要: fade-outの開始(20%)とfade-inの完了(23%)をずらして
-  必ず「前の画像が消えている間、次の画像が既に現れてくる」
-  クロスフェードになるよう設計。全スライドがopacity:0になる瞬間をなくす。
-  - 0%〜3%:   フェードイン (0s〜1.05s)
-  - 3%〜20%:  完全表示
-  - 20%〜23%: フェードアウト (7s〜8.05s) ← 次スライドのフェードインと重なる
-  - 23%〜100%: 非表示
-*/
 @keyframes slideShow {
   0%   { opacity: 0; }
-  3%   { opacity: 1; }
-  20%  { opacity: 1; }
-  23%  { opacity: 0; }
+  4%   { opacity: 1; }   /* 3s でフェードイン完了 */
+  20%  { opacity: 1; }   /* 15s まで完全表示 */
+  24%  { opacity: 0; }   /* 18s でフェードアウト完了（次のfade-inと重なる） */
   100% { opacity: 0; }
 }
 
