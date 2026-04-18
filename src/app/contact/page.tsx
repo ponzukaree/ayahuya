@@ -21,6 +21,8 @@ export default async function Contact() {
         <div className={styles.links}>
           <a 
             href={`mailto:${data.contact.email}`} 
+            target="_blank"
+            rel="noopener noreferrer"
             className={`${styles.linkButton} ${styles.email}`}
           >
             <span>✉️</span> メールでご相談
