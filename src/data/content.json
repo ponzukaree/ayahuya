@@ -1,0 +1,80 @@
+{
+  "site": {
+    "title": "AyahuyA - 3D Modeler Portfolio",
+    "tagline": "深夜に溶け込む、あなただけの3Dアバターと世界。",
+    "description": "VRChat向けの高品質な3Dモデル・ワールド制作。BlenderとUnityを駆使し、プロフェッショナルかつ親しみやすい「深夜の隠れ家」のような世界観を提案します。"
+  },
+  "profile": {
+    "name": "AyahuyA / あやふや",
+    "imageUrl": "https://unavatar.io/twitter/ayahuya_aya",
+    "role": "フリーランス 3Dクリエイター",
+    "bio": "アバター用衣装制作やVRChatワールド制作など、バーチャル空間向けの制作を行っています。\n背景CG会社にて約7年間実務経験を積み、現在は駆け出しのフリーランスとして活動中！",
+    "skills": [
+      "Unity",
+      "UE4",
+      "Blender",
+      "MAYA",
+      "Substance 3D",
+      "Photoshop"
+    ],
+    "history": [
+      { "title": "ハジマルイオン −遊覧空間−【♪Official Music Video】", "url": "https://www.youtube.com/watch?v=F-orl5-MtYc" },
+      { "title": "あの子は樹海 (ポストカードグッズ)", "url": "https://x.com/NeoHorrorRadio/status/1872220811861328267" },
+      { "title": "JIGDRESS / blue", "url": "https://www.youtube.com/watch?v=LoBecNxRRww" },
+      { "title": "キモノデザイナー『JOTARO SAITO』× XWearコラボ第2弾 VRChat向け3Dアバター浴衣「ブラウジングストライプ」公開", "url": "https://vroid.com/news/1T7pUAcXeFxX45recvE5C2" },
+      { "title": "Official Music Video【猫のみぞ知る｜猫 The Sappiness】", "url": "https://www.youtube.com/watch?v=t4SwcyvKJqk" }
+    ]
+  },
+  "works": [
+    {
+      "id": "neon",
+      "title": "NEON",
+      "category": "VRChat World",
+      "description": "深夜のサイバーパンクな街並みを表現したVRChat向けワールド。ネオンサインと湿度を感じる空気感が特徴。",
+      "imageUrl": "https://static.wixstatic.com/media/024420_2b87a6f271104e3f80ca972c0c6a237c~mv2.png",
+      "images": [
+        "https://static.wixstatic.com/media/024420_8e2d1adb161b4e08ac67b78a6cf069b4~mv2.png",
+        "https://static.wixstatic.com/media/024420_2b87a6f271104e3f80ca972c0c6a237c~mv2.png",
+        "https://static.wixstatic.com/media/024420_aeec920483154ee0a6af54f395d5f761~mv2.png"
+      ],
+      "boothUrl": "https://hakasevrc.booth.pm/items/neon"
+    },
+    {
+      "id": "subway",
+      "title": "Subway",
+      "category": "VRChat World",
+      "description": "無機質で静寂な地下鉄構内を再現。孤独と美しさが同居する空間コンセプト。",
+      "imageUrl": "https://static.wixstatic.com/media/024420_676aca28495643239364f485bd84f562~mv2.png",
+      "images": [
+        "https://static.wixstatic.com/media/024420_7ea89d216aa14a4ba00bd7b4510f01e5~mv2.png",
+        "https://static.wixstatic.com/media/024420_3433480a4d174c338dc6a02185d1b1f7~mv2.png",
+        "https://static.wixstatic.com/media/024420_676aca28495643239364f485bd84f562~mv2.png"
+      ],
+      "boothUrl": ""
+    },
+    {
+      "id": "dragon-apron",
+      "title": "家庭科ドラゴンエプロン",
+      "category": "3D Avatar Accessory",
+      "description": "複数アバターに対応したドラゴン柄のエプロン。懐かしさと可愛らしさを両立。",
+      "imageUrl": "https://static.wixstatic.com/media/024420_ed501ab3cdb44d99b966480accc687e1~mv2.png",
+      "images": [],
+      "boothUrl": ""
+    },
+    {
+      "id": "sun-room",
+      "title": "Sun Room",
+      "category": "VRChat World",
+      "description": "暖かな日差しが差し込むサンルーム。VCC対応済みのリラックス空間です。",
+      "imageUrl": "https://static.wixstatic.com/media/024420_1b6f4af4579041deb8a5d5a89cf95267~mv2.png",
+      "images": [],
+      "boothUrl": ""
+    }
+  ],
+  "contact": {
+    "message": "ご依頼やお問い合わせは、メール、X (Twitter) のDM、またはBOOTHのメッセージ機能からお気軽にご連絡ください。",
+    "email": "ayahuyaaya@gmail.com",
+    "twitter": "https://x.com/ayahuya_aya",
+    "booth": "https://hakasevrc.booth.pm/"
+  }
+}

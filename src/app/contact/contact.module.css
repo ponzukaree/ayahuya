@@ -1,0 +1,66 @@
+.container {
+  padding: 4rem 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  letter-spacing: 0.1em;
+}
+
+.contactCard {
+  padding: 4rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.message {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-text-main);
+  margin-bottom: 2rem;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.linkButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.linkButton.twitter:hover {
+  background: rgba(29, 161, 242, 0.2);
+  border-color: #1da1f2;
+  box-shadow: 0 4px 15px rgba(29, 161, 242, 0.3);
+}
+
+.linkButton.email:hover {
+  background: rgba(234, 67, 53, 0.2);
+  border-color: #ea4335;
+  box-shadow: 0 4px 15px rgba(234, 67, 53, 0.3);
+}
+
+.linkButton.booth:hover {
+  background: rgba(252, 77, 80, 0.2);
+  border-color: #fc4d50;
+  box-shadow: 0 4px 15px rgba(252, 77, 80, 0.3);
+}

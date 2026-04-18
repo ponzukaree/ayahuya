@@ -1,0 +1,115 @@
+.container {
+  padding: 4rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  letter-spacing: 0.1em;
+}
+
+.profileCard {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: 2rem;
+}
+
+.profileImage {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-accent);
+  box-shadow: 0 4px 15px var(--color-accent-glow);
+  margin-bottom: 1rem;
+}
+
+.name {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.role {
+  color: var(--color-accent);
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+.bio {
+  line-height: 1.8;
+  color: var(--color-text-main);
+  text-align: justify;
+  white-space: pre-wrap;
+}
+
+.skillsArea {
+  margin-top: 1rem;
+}
+
+.skillsTitle {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--color-text-muted);
+}
+
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+}
+
+.skillItem {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.skillItem:hover {
+  background: rgba(58, 123, 213, 0.2);
+  border-color: var(--color-accent);
+}
+
+.historyArea {
+  margin-top: 2rem;
+  border-top: 1px solid var(--glass-border);
+  padding-top: 2rem;
+}
+
+.historyList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.historyItem a {
+  color: var(--color-text-main);
+  text-decoration: underline;
+  text-decoration-color: var(--glass-border);
+  text-underline-offset: 4px;
+  line-height: 1.6;
+  transition: all 0.3s ease;
+}
+
+.historyItem a:hover {
+  color: var(--color-accent);
+  text-decoration-color: var(--color-accent);
+}

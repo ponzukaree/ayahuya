@@ -1,0 +1,92 @@
+.container {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.backButton {
+  display: inline-block;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  transition: color 0.3s ease;
+}
+
+.backButton:hover {
+  color: var(--color-accent);
+}
+
+.detailCard {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.category {
+  font-size: 0.9rem;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-text-main);
+  margin-bottom: 2.5rem;
+  white-space: pre-wrap;
+}
+
+.boothButton {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: rgba(252, 77, 80, 0.1);
+  border: 1px solid #fc4d50;
+  color: #fff;
+  border-radius: 30px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.boothButton:hover {
+  background: rgba(252, 77, 80, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(252, 77, 80, 0.4);
+}
+
+.imagesGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.imageWrapper {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}

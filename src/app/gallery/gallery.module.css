@@ -1,0 +1,239 @@
+.container {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  letter-spacing: 0.1em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.05);
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(3, 8, 22, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.imageWrapper:hover .imageOverlay {
+  opacity: 1;
+}
+
+.imageOverlay span {
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+}
+
+/* Modal Overlay Data */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  animation: fadeInModal 0.3s ease-out;
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modalContent {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.modalInner {
+  background: rgba(3, 8, 22, 0.95);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  overflow-y: auto;
+  max-height: calc(90vh - 40px);
+  padding: 2rem;
+}
+
+.modalInner::-webkit-scrollbar {
+  width: 8px;
+}
+.modalInner::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+.modalInner::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 8px;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--glass-border);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.modalTitle {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.modalBoothButton {
+  padding: 0.8rem 1.5rem;
+  background: rgba(252, 77, 80, 0.1);
+  border: 1px solid #fc4d50;
+  color: #fff;
+  border-radius: 30px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.modalBoothButton:hover {
+  background: rgba(252, 77, 80, 0.3);
+  box-shadow: 0 5px 15px rgba(252, 77, 80, 0.4);
+}
+
+.modalImagesGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.modalImage {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+  background: rgba(0,0,0,0.2);
+}
+
+.closeButton {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2.5rem;
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.closeButton:hover {
+  opacity: 1;
+}
+
+.content {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.itemTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.category {
+  font-size: 0.8rem;
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.description {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.linkButton {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 1rem;
+  background: rgba(58, 123, 213, 0.15);
+  border: 1px solid var(--color-accent);
+  color: #fff;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.linkButton:hover {
+  background: var(--color-accent);
+  box-shadow: 0 5px 15px var(--color-accent-glow);
+  color: #fff;
+  border-color: var(--color-accent);
+}
